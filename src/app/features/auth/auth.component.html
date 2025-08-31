@@ -1,0 +1,48 @@
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>{{ translations['title'] || 'Welcome' }}</h1>
+        <form #authForm="ngForm" class="auth-form" (ngSubmit)="onSignIn($event)">
+            <div class="form-group">
+                <label for="email">{{ translations['email']?.label || 'Email' }}</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    class="form-control" 
+                    [placeholder]="translations['email']?.placeholder || 'Enter your email'"
+                    [(ngModel)]="credentials.email"
+                    name="email"
+                    required
+                    email
+                    #email="ngModel"
+                    [class.is-invalid]="email.invalid && (email.dirty)">
+                <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty)">
+                    <div *ngIf="email.errors?.['required']">{{ translations['email']?.required || 'Email is required' }}</div>
+                    <div *ngIf="email.errors?.['email']">{{ translations['email']?.invalid || 'Please enter a valid email' }}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">{{ translations['password']?.label || 'Password' }}</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    class="form-control" 
+                    [placeholder]="translations['password']?.placeholder || 'Enter your password'"
+                    [(ngModel)]="credentials.password"
+                    name="password"
+                    required
+                    #password="ngModel"
+                    [class.is-invalid]="password.invalid && (password.dirty)">
+                <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty)">
+                    <div *ngIf="password.errors?.['required']">{{ translations['password']?.required || 'Password is required' }}</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!authForm.form.valid">
+                {{ translations['signIn'] || 'Sign In' }}
+            </button>
+        </form>
+       <div class="d-flex justify-content-between pt-3">
+        <a href="/signup" class="text-decoration-none">{{ translations['signUp'] || 'Sign Up' }}</a>
+        <a href="/forgot-password" class="text-decoration-none">{{ translations['forgotPassword'] || 'Forgot password?' }}</a>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{
+  "auth": {
+    "title": "Bienvenue sur Schedulo",
+    "email": {
+      "label": "Email",
+      "placeholder": "Entrez votre email",
+      "required": "L'email est requis",
+      "invalid": "Veuillez entrer une adresse email valide"
+    },
+    "password": {
+      "label": "Mot de passe",
+      "placeholder": "Entrez votre mot de passe",
+      "required": "Le mot de passe est requis"
+    },
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "forgotPassword": "Mot de passe oublié?"
+  }
+}

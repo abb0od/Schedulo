@@ -1,0 +1,21 @@
+<div>
+<div class="card h-100 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title border-bottom">{{supplier.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{supplier.businessName}}</h6>
+        <p class="card-text">{{supplier.description}}</p>
+        <div class="d-flex flex-column align-items-center ">
+        <img  [src]="supplier.image" alt="{{supplier.name}}" class="img-fluid rounded"/>
+        <button class="btn btn-primary  m-3" (click)="onBook()">+ Book</button>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Available for appointments</small>
+        </div>
+    </div>
+</div>
+    <app-book-popup 
+  *ngIf="showPopup" 
+  (close)="handleClosePopup()" 
+  (bookAppointment)="handleBookAppointment($event)">
+</app-book-popup>
+</div>

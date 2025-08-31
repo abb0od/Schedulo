@@ -1,0 +1,15 @@
+<div class="dropdown language-toggle">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" 
+            data-bs-toggle="dropdown" aria-expanded="false">
+        {{ currentLang.toUpperCase() }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+        <li *ngFor="let lang of languages">
+            <a class="dropdown-item" 
+               (click)="changeLanguage(lang.code)"
+               [class.active]="currentLang === lang.code">
+                {{ lang.label }}
+            </a>
+        </li>
+    </ul>
+</div>

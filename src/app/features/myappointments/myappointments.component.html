@@ -1,0 +1,46 @@
+<!-- Header Section -->
+<div class="jumbotron jumbotron-fluid p-4 mb-4" 
+     style="border: 1px solid #ddd; background-color: #e9f5ff; border-radius: 8px;">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1 class="display-6 mb-0">Book Appointment</h1>
+    <button class="btn btn-primary btn-lg" (click)="BookNow()">+ Book Now</button>
+  </div>
+</div>
+
+<!-- Appointments Grid -->
+<div class="container my-4 p-4 shadow-sm rounded" 
+     style="border: 1px solid #eee; background-color: #fff;">
+  <h3 class="mb-4 border-bottom pb-2">My Appointments</h3>
+
+  <!-- Header Row -->
+  <div class="row fw-bold text-secondary border-bottom pb-2 mb-2">
+    <div class="col-2">Title</div>
+    <div class="col-2">Date</div>
+    <div class="col-2">Time</div>
+    <div class="col-2">Location</div>
+    <div class="col-2">Status</div>
+    <div class="col-2">Note</div>
+  </div>
+
+  <!-- Data Rows -->
+  <div class="row align-items-center border-bottom py-3 hover-row" 
+       *ngFor="let appointment of appointments">
+    <div class="col-2 fw-semibold">{{ appointment.title }}</div>
+    <div class="col-2">{{ appointment.date | date: 'mediumDate' }}</div>
+    <div class="col-2">{{ appointment.time }}</div>
+    <div class="col-2">{{ appointment.location }}</div>
+    <div class="col-2">
+      <span [ngClass]="{
+        'badge bg-success': appointment.status === 'completed',
+        'badge bg-danger': appointment.status === 'cancelled',
+        'badge bg-primary': appointment.status === 'scheduled',
+        'badge bg-warning text-dark': appointment.status === 'pending'
+      }">
+        {{ appointment.status }}
+      </span>
+    </div>
+    <div class="col-2 text-truncate" style="max-width: 150px;">
+      {{ appointment.description }}
+    </div>
+  </div>
+</div>

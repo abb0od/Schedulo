@@ -1,0 +1,38 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.language-toggle {
+ 
+    .btn-secondary {
+        background: theme-value(background-secondary);
+        border: 1px solid theme-value(border-color);
+        color: theme-value(text-primary);
+        transition: all 0.2s ease;
+        padding: $spacing-xs $spacing-sm;
+
+        &:hover, &:focus, &:active {
+            background: theme-value(primary-color);
+            color: #fff;
+            border-color: theme-value(primary-color);
+        }
+    }
+
+    .dropdown-menu {
+        background: theme-value(background-secondary);
+        border: 1px solid theme-value(border-color);
+        padding: $spacing-xs 0;
+        min-width: 120px;
+
+        .dropdown-item {
+            color: theme-value(text-primary);
+            padding: $spacing-xs $spacing-sm;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover, &.active {
+                background: theme-value(primary-color);
+                color: #fff;
+            }
+        }
+    }
+}
