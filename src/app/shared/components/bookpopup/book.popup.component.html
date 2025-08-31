@@ -1,0 +1,62 @@
+<div class="popup-overlay" (click)="closePopup()">
+    <div class="popup-content" (click)="$event.stopPropagation()">
+      <h2>Book Appointment</h2>
+      <form [formGroup]="bookingForm" (ngSubmit)="onBookAppointment()">
+        <div class="form-content">
+          <div class="form-group">
+            <label for="appointmentDate">Appointment Date</label>
+            <input 
+              type="date" 
+              id="appointmentDate" 
+              formControlName="date"
+              [min]="minDate.toISOString().split('T')[0]"
+              [max]="maxDate.toISOString().split('T')[0]"
+              class="form-control"
+              [class.is-invalid]="bookingForm.get('date')?.invalid && bookingForm.get('date')?.touched">
+            <div class="invalid-feedback" *ngIf="bookingForm.get('date')?.errors?.['required'] && bookingForm.get('date')?.touched">
+              Date is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="appointmentTime">Appointment Time</label>
+            <select 
+              id="appointmentTime" 
+              formControlName="time"
+              class="form-control"
+              [class.is-invalid]="bookingForm.get('time')?.invalid && bookingForm.get('time')?.touched">
+              <option value="">Select a time</option>
+              <option *ngFor="let slot of timeSlots" [value]="slot">
+                {{slot}}
+              </option>
+            </select>
+            <div class="invalid-feedback" *ngIf="bookingForm.get('time')?.errors?.['required'] && bookingForm.get('time')?.touched">
+              Time is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notes (Optional)</label>
+            <textarea 
+              id="notes" 
+              formControlName="notes"
+              class="form-control" 
+              rows="3"
+              placeholder="Add any special requests or notes here">
+            </textarea>
+            <small class="text-muted">Maximum 500 characters</small>
+          </div>
+        </div>
+
+        <div class="popup-actions">
+          <button type="button" class="btn btn-secondary" (click)="closePopup()">Cancel</button>
+          <button 
+            type="submit" 
+            class="btn btn-primary" 
+            [disabled]="!bookingForm.valid || isLoading">
+            {{ isLoading ? 'Booking...' : 'Book Appointment' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

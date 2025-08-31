@@ -1,0 +1,52 @@
+// Theme colors
+$themes: (
+  light: (
+    background-primary: #f5f5f5,
+    background-secondary: #ffffff,
+    text-primary: #333333,
+    text-secondary: #666666,
+    text-placeholder: #999999,
+    border-color: #dddddd,
+    primary-color: #007bff,
+    primary-hover: #0056b3,
+    error-color: #dc3545,
+    error-background: rgba(220, 53, 69, 0.25),
+    shadow-color: rgba(0, 0, 0, 0.1)
+  ),
+  dark: (
+    background-primary: #161f33,
+    background-secondary: #111827,
+    text-primary: #ffffff,
+    text-secondary: #cccccc,
+    text-placeholder: #6b7280,
+    border-color: #404040,
+    primary-color: #0d6efd,
+    primary-hover: #0b5ed7,
+    error-color: #dc3545,
+    error-background: rgba(220, 53, 69, 0.15),
+    shadow-color: rgba(0, 0, 0, 0.3)
+  )
+);
+
+// Function to get theme value
+@function theme-value($key) {
+  @return var(--#{$key});
+}
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+// Border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// Font sizes
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;

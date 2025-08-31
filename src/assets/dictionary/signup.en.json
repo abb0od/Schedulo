@@ -1,0 +1,25 @@
+{
+  "signup": {
+    "title": "Create an Account",
+    "fullname": {
+      "label": "Full Name",
+      "placeholder": "Enter your full name",
+      "required": "Full name is required",
+      "minLength": "Full name must be at least 3 characters long"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "required": "Email is required",
+      "invalid": "Please enter a valid email address"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password",
+      "required": "Password is required",
+      "minLength": "Password must be at least 8 characters long"
+    },
+    "submit": "Sign Up",
+    "alreadyHaveAccount": "Already have an account? Sign in"
+  }
+}
